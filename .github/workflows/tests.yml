@@ -2,7 +2,7 @@ name: Smoke Testes - PR
 
 on:
    pull_request:
-     branches: [ master ]
+     branches: [ main ]
    push:
      branches: [ '*' ]
 
