@@ -3,6 +3,8 @@ name: Smoke Testes - PR
 on:
    pull_request:
      branches: [ master ]
+   push:
+     branches: [ '*' ]
 
 jobs:
   RunTest:
@@ -22,8 +24,7 @@ jobs:
       - name: Instalar Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Instalar Chrome Driver
-        uses: nanasess/setup-chromedriver@v2
+      - uses: nanasess/setup-chromedriver@v2
       - run: |
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
