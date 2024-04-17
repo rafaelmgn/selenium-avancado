@@ -51,5 +51,10 @@ public class LoginSteps extends RunCucumber {
         loginPage.clicarLogin();
         loginPage.verificaLoginSucesso();
     }
+    @Então("^vejo a mensagem \"([^\"]*)\" na tela$")
+    public void vejo_a_mensagem_na_tela(String message) {
+        loginPage.verificaEmailInvalido(message);
+    }
+
 
 }

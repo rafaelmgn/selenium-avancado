@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import runner.RunCucumber;
 
+import static support.Commands.*;
+
 public class CadastroUsuarioPage extends RunCucumber {
 
     // elementos
@@ -14,22 +16,24 @@ public class CadastroUsuarioPage extends RunCucumber {
 
     // ações / funções / métodos
     public void preencheNome(String email){
-         getDriver().findElement(campoNome).sendKeys(email);
+        fillFild(campoNome, email);
     }
     public void preencheEmail(String email){
-         getDriver().findElement(campoEmail).sendKeys(email);
+        fillFild(campoEmail, email);
     }
 
     public void preencherSenha(String senha){
-        getDriver().findElement(campoSenha).sendKeys(senha);
+        fillFild(campoSenha, senha);
     }
 
     public void cadastrarUsuario(){
-        getDriver().findElement(botaoFazerCadastro).click();
+        clickElement(botaoFazerCadastro);
     }
 
     public void verificaCadastroSucesso(){
-        String textoLoginSucesso = getDriver().findElement(By.id("swal2-title")).getText();
-        Assert.assertEquals("Os textos não são iguais!", "Cadastro realizado!", textoLoginSucesso);
+        validateMessage(By.id("swal2-title"), "Cadastro realizado!");
+        //waitElementBeVisible(By.id("swal2-title"), 10);
+        //String textoLoginSucesso = getDriver().findElement(By.id("swal2-title")).getText();
+        //Assert.assertEquals("Os textos não são iguais!", "Cadastro realizado!", textoLoginSucesso);
     }
 }
