@@ -1,6 +1,5 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import runner.RunCucumber;
 
@@ -32,8 +31,5 @@ public class CadastroUsuarioPage extends RunCucumber {
 
     public void verificaCadastroSucesso(){
         validateMessage(By.id("swal2-title"), "Cadastro realizado!");
-        //waitElementBeVisible(By.id("swal2-title"), 10);
-        //String textoLoginSucesso = getDriver().findElement(By.id("swal2-title")).getText();
-        //Assert.assertEquals("Os textos não são iguais!", "Cadastro realizado!", textoLoginSucesso);
     }
 }

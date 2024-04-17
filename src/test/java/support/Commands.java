@@ -49,7 +49,7 @@ public class Commands extends RunCucumber {
     public static void validateMessage(By element, String valueExpected){
         System.out.println("Init #######################################");
         System.out.println("*** Verificar valor de '"+ valueExpected + "' no elemento: " + element);
-        waitElementBeVisible(element, 5);
+        waitElementBeVisible(element, 10);
         Assert.assertEquals("Os textos não são iguais!", valueExpected, getDriver().findElement((element)).getText());
         System.out.println("Finish #####################################");
     }

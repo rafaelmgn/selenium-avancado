@@ -2,7 +2,9 @@ package runner;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,8 +26,18 @@ public class RunBase {
             case "chrome":
                 driver = new ChromeDriver();
                 break;
+            case "chrome-ci":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless", "window-size=1200x600");
+                driver = new ChromeDriver(chromeOptions);
+                break;
             case "firefox":
                 driver = new FirefoxDriver();
+                break;
+            case "firefox-ci":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("-headless");
+                driver = new FirefoxDriver(firefoxOptions);
                 break;
             case "edge":
                 throw new IllegalArgumentException("Edge ainda nao suportado");
