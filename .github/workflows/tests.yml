@@ -21,7 +21,7 @@ jobs:
 
       - name: Instalar Chrome
         uses: browser-actions/setup-chrome@v1
-        run: chrome --version
+      - run: chrome --version
 
       - uses: nanasess/setup-chromedriver@v2
       - run: |
