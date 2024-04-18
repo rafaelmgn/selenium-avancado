@@ -1,4 +1,4 @@
-name: Smoke Testes - Schedule
+name: Testes - Schedule
 
 on:
   schedule:
