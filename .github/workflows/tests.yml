@@ -3,8 +3,6 @@ name: Smoke Testes - PR
 on:
    pull_request:
      branches: [ main ]
-   push:
-     branches: [ '*' ]
 
 jobs:
   RunTest:
@@ -23,6 +21,7 @@ jobs:
 
       - name: Instalar Chrome
         uses: browser-actions/setup-chrome@v1
+      - run: chrome --version
 
       - uses: nanasess/setup-chromedriver@v2
       - run: |
@@ -33,4 +32,14 @@ jobs:
       - name: Run Test
         run: | 
           mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
-          mvn cluecumber-report:reporting
+
+      - name: Gerar Relatorio
+        if: always()
+        run: mvn cluecumber-report:reporting
+
+      - name: Arquivar relatorio
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-tests
+          path: '**/formated-report/'
