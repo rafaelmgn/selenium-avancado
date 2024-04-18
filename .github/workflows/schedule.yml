@@ -2,7 +2,7 @@ name: Smoke Testes - Schedule
 
 on:
   schedule:
-    -  cron: '2 16 * * 1-5'
+    -  cron: '0/5 * * * 1-5'
 
 jobs:
   RunTest:
