@@ -3,8 +3,6 @@ name: Smoke Testes - PR
 on:
    pull_request:
      branches: [ main ]
-   push:
-     branches: [ '*' ]
 
 jobs:
   RunTest:
@@ -33,4 +31,12 @@ jobs:
       - name: Run Test
         run: | 
           mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
-          mvn cluecumber-report:reporting
+
+      - name: Gerar Relatorio
+        run: mvn cluecumber-report:reporting
+
+      - name: Arquivar relatorio
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-tests
+          path: '**/formated-report/'
