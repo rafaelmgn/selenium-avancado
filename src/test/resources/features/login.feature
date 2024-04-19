@@ -9,13 +9,13 @@
     Contexto: Acessar tela de Login
       Dado que estou na tela de login
 
-    @teste
+    @login-suscesso
     Cenário: Login com sucesso
       Quando preencho login "teste@teste.com" e senha "123456"
       E clico em Login
       Então vejo mensagem de login com sucesso
 
-    @teste
+    @validar-campos-login
     Esquema do Cenario: Validar <scenario>
       Quando preencho login "<user>" e senha "<password>"
       E clico em Login

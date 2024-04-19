@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Test
         run: |
-          mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+          mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -Dcucumber.options="--tags ~@ignore"
 
       - name: Gerar Relatorio
         if: always()
