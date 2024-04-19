@@ -50,7 +50,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://icons8.com.br/icon/O9gFFs8Wy3Cf/passar
+          SLACK_ICON: https://img.icons8.com/color/48/pass.png
           SLACK_MESSAGE: 'Sucesso na execução de testes da schedule :white_check_mark:'
           SLACK_USERNAME: SUCESSO
 
@@ -60,6 +60,6 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://icons8.com.br/icon/S7l4pxBr45nJ/falhar
+          SLACK_ICON: https://img.icons8.com/color/48/fail.png
           SLACK_MESSAGE: 'Falha na execução de testes da schedule :fire:'
           SLACK_USERNAME: FALHA
